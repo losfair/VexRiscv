@@ -19,7 +19,7 @@ object GenOrangeSoC extends App{
           compressedGen = true,
           injectorStage = true,
           config = InstructionCacheConfig(
-            cacheSize = 8192,
+            cacheSize = 4096,
             bytePerLine = 32,
             wayCount = 1,
             addressWidth = 32,
