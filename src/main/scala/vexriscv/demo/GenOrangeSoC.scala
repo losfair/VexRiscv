@@ -14,7 +14,7 @@ object GenOrangeSoC extends App{
     config = VexRiscvConfig(
       plugins = List(
         new IBusCachedPlugin(
-          resetVector = 0x00010000l,
+          resetVector = 0xff010000l,
           prediction = STATIC,
           compressedGen = true,
           injectorStage = true,
@@ -47,7 +47,7 @@ object GenOrangeSoC extends App{
           misaExtensionsInit = 66,
           misaAccess     = CsrAccess.NONE,
           mtvecAccess    = CsrAccess.READ_WRITE,
-          mtvecInit      = 0x00010010l,
+          mtvecInit      = 0xff010010l,
           mepcAccess     = CsrAccess.READ_WRITE,
           mscratchGen    = false,
           mcauseAccess   = CsrAccess.READ_ONLY,
@@ -84,7 +84,7 @@ object GenOrangeSoC extends App{
         ),
         new MulDivIterativePlugin(
           genMul = true,
-          genDiv = true,
+          genDiv = false,
           mulUnrollFactor = 1,
           divUnrollFactor = 1
         ),
