@@ -34,7 +34,8 @@ object GenOrangeSoC extends App{
         ),
         new DBusSimplePlugin(
           catchAddressMisaligned = false,
-          catchAccessFault = true
+          catchAccessFault = true,
+          earlyInjection = true
         ),
         new CsrPlugin(CsrPluginConfig(
           // based on "smallest"
