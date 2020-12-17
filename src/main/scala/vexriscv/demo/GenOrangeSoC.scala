@@ -19,9 +19,9 @@ object GenOrangeSoC extends App{
           compressedGen = true,
           injectorStage = true,
           config = InstructionCacheConfig(
-            cacheSize = 4096,
+            cacheSize = 6144,
             bytePerLine = 32,
-            wayCount = 1,
+            wayCount = 3,
             addressWidth = 32,
             cpuDataWidth = 32,
             memDataWidth = 32,
@@ -34,7 +34,7 @@ object GenOrangeSoC extends App{
         ),
         new DBusSimplePlugin(
           catchAddressMisaligned = false,
-          catchAccessFault = true,
+          catchAccessFault = false,
           earlyInjection = true
         ),
         new CsrPlugin(CsrPluginConfig(
