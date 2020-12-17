@@ -17,7 +17,6 @@ object GenOrangeSoC extends App{
           resetVector = 0xff010000l,
           prediction = STATIC,
           compressedGen = true,
-          injectorStage = true,
           config = InstructionCacheConfig(
             cacheSize = 6144,
             bytePerLine = 32,
@@ -29,7 +28,7 @@ object GenOrangeSoC extends App{
             catchAccessFault = false,
             asyncTagMemory = false,
             twoCycleRam = false,
-            twoCycleCache = true
+            twoCycleCache = false
           )
         ),
         new DBusSimplePlugin(
