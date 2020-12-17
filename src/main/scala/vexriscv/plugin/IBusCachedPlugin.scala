@@ -52,7 +52,7 @@ class IBusCachedPlugin(resetVector : BigInt = 0x80000000l,
   predictionBuffer = predictionBuffer){
   import config._
 
-  assert(isPow2(cacheSize))
+  assert(isPow2(cacheSize/wayCount))
   assert(!(memoryTranslatorPortConfig != null && config.cacheSize/config.wayCount > 4096), "When the I$ is used with MMU, each way can't be bigger than a page (4096 bytes)")
 
 

@@ -27,7 +27,7 @@ class DBusCachedPlugin(val config : DataCacheConfig,
                        csrInfo : Boolean = false)  extends Plugin[VexRiscv] with DBusAccessService {
   import config._
 
-  assert(isPow2(cacheSize))
+  assert(isPow2(cacheSize/wayCount))
   assert(!(memoryTranslatorPortConfig != null && config.cacheSize/config.wayCount > 4096), "When the D$ is used with MMU, each way can't be bigger than a page (4096 bytes)")
 
   var dBus  : DataCacheMemBus = null
