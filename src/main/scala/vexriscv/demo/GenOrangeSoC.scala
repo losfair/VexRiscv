@@ -18,9 +18,9 @@ object GenOrangeSoC extends App{
           prediction = STATIC,
           compressedGen = true,
           config = InstructionCacheConfig(
-            cacheSize = 6144,
+            cacheSize = 4096,
             bytePerLine = 32,
-            wayCount = 3,
+            wayCount = 1,
             addressWidth = 32,
             cpuDataWidth = 32,
             memDataWidth = 32,
@@ -38,14 +38,14 @@ object GenOrangeSoC extends App{
         ),
         new CsrPlugin(CsrPluginConfig(
           // based on "smallest"
-          catchIllegalAccess = false,
+          catchIllegalAccess = true,
           mvendorid      = null,
           marchid        = null,
           mimpid         = null,
           mhartid        = null,
           misaExtensionsInit = 66,
           misaAccess     = CsrAccess.NONE,
-          mtvecAccess    = CsrAccess.READ_WRITE,
+          mtvecAccess    = CsrAccess.WRITE_ONLY,
           mtvecInit      = 0xff010010l,
           mepcAccess     = CsrAccess.READ_WRITE,
           mscratchGen    = false,
@@ -53,11 +53,12 @@ object GenOrangeSoC extends App{
           mbadaddrAccess = CsrAccess.NONE,
           mcycleAccess   = CsrAccess.NONE,
           minstretAccess = CsrAccess.NONE,
-          ecallGen       = false,
+          ecallGen       = true,
           wfiGenAsWait   = false,
           wfiGenAsNop    = true,
           ucycleAccess   = CsrAccess.NONE,
-          uinstretAccess = CsrAccess.NONE
+          uinstretAccess = CsrAccess.NONE,
+          userGen = true
         )),
         new DecoderSimplePlugin(
           catchIllegalInstruction = true
