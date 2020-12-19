@@ -82,7 +82,6 @@ object GenOrangeSoC extends App{
           pessimisticWriteRegFile = false,
           pessimisticAddressMatch = false
         ),
-        new Mul16Plugin(),
         new BranchPlugin(
           earlyBranch = false,
           catchAddressMisaligned = false
